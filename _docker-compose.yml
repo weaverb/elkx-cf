@@ -1,0 +1,11 @@
+elkx:
+  image: sebp/elkx
+  ports:
+    - "5601:5601"
+    - "9200:9200"
+    - "5044:5044"
+  environment:
+    - ELASTIC_BOOTSTRAP_PASSWORD=changeme
+  volumes:
+    - ${PWD}/conf.d/syslog.conf:/etc/logstash/conf.d/syslog.conf
+    - ${PWD}/config/logstash.yml:/opt/logstash/config/logstash.yml
